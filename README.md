@@ -28,3 +28,46 @@ Contents
 - tail.c: Standalone tail function that reads the last n lines from the syslog file, and then cuts those lines up into keycode tokens and prints to the terminal.
 
 - cardChecker.c: The complete function to read from the syslog file and look for credit cards as described above.
+
+Instructions
+-------------------------------------
+
+* To run the keylogger:
+  
+  - Make sure that Makefile and keylogger.c are in the same directory.
+
+  - Run the make file by calling make in the terminal pointed at the directory.
+
+  - Once the make command finishes, call sudo insmod keylogger.ko to load it into the kernel, and us sudo lsmod to check that keylogger is in the kernel, and use dmesg for quick checking what is written to the syslog
+  
+* To run the cardChecker:
+
+  - Open a terminal and navigate to the directory that houses the cardChecker.c file.
+  
+  - Use gcc -o cardChecker cardChecker.c to compile the code.
+  
+  - To run the code call sudo ./cardChecker
+  
+* To run the keycode seperate:
+
+  - Open a terminal and navigate to the directory that houses the keycode.c file.
+  
+  - Use gcc -o keycode keycode.c to compile the code.
+  
+  - To run the code call ./keycode code where code is the command line argument for the linux keycode
+  
+  * To run Luhn's algorithm seperatly:
+  
+   - Open a terminal and navigate to the directory that houses the luhnAlg.c file.
+  
+  - Use gcc -o luhnalg luhnAlg.c to compile the code.
+  
+  - To run the code call ./luhnAlg, there are some preloaded card arrays provided in the code that may be uncommented to run, recompile after changing
+  
+* To run the tail code seperate:
+
+  - Open a terminal and navigate to the directory that houses the tail.c file.
+  
+  - Use gcc -o keycode tail.c to compile the code.
+  
+  - To run the code call ./tail 
